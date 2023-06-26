@@ -1,3 +1,5 @@
+package SamplePack;
+
 import java.util.Scanner;
 
 public class Blaptop_Agencey implements BlaptopAction {	
@@ -118,6 +120,23 @@ public class Blaptop_Agencey implements BlaptopAction {
 							Integer serialno = in.nextInt() ;
 							model[index].setSerialno(serialno);
 							break;
+				case"color":
+					        System.out.println("What's the new Color");
+					        String color = in.next();
+					        model[index].setColor(color);
+					        break;
+				case"price":
+							System.out.println("What's the new Price");
+							Integer price = in.nextInt();
+							model[index].setPrice(price);
+							break;
+				case"storage":
+							System.out.println("What's the new Storage");
+							Integer storage =in.nextInt();
+							model[index].setStorage(storage);
+							break;
+				default:
+							throw new IllegalArgumentException("Unexecepted Value "+update);
 		     		}
 				}
 			}
