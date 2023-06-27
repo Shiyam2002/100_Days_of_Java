@@ -1,5 +1,3 @@
-package SamplePack;
-
 import java.util.Scanner;
 
 public class Blaptop_Agencey implements BlaptopAction {	
@@ -182,8 +180,29 @@ public class Blaptop_Agencey implements BlaptopAction {
 						model[jindex]=temp;
 					}
 				}
-				else if(sort.equalsIgnoreCase("serialNo")) {
+				else if(sort.equalsIgnoreCase("serialno")) {
 					if(model[index].getSerialno().compareTo(model[jindex].getSerialno())>0) {
+						temp=model[index];
+						model[index]=model[jindex];
+						model[jindex]=temp;
+					}
+				}
+				else if(sort.equalsIgnoreCase("color")) {
+					if(model[index].getColor().compareTo(model[jindex].getColor())>0) {
+						temp = model[index];
+						model[index]=model[jindex];
+						model[jindex]=temp;
+					}
+				}
+				else if(sort.equalsIgnoreCase("price")) {
+					if(model[index].getPrice().compareTo(model[jindex].getPrice())>0) {
+						temp=model[index];
+						model[index]=model[jindex];
+						model[jindex]=temp;
+					}
+				}
+				else if(sort.equalsIgnoreCase("storage")) {
+					if(model[index].getStorage().compareTo(model[jindex].getStorage())>0) {
 						temp=model[index];
 						model[index]=model[jindex];
 						model[jindex]=temp;
