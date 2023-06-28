@@ -1,3 +1,5 @@
+package SamplePack;
+
 import java.util.Scanner;
 
 public class Blaptop_Agencey implements BlaptopAction {	
@@ -16,7 +18,7 @@ public class Blaptop_Agencey implements BlaptopAction {
 	public static void main(String[] args) {
 		Blaptop_Agencey obj = new Blaptop_Agencey();
 		Integer serialno,price,storage,choice;
-		String modelName,color,Name;
+		String modelName,color,Name,searchName;
 		do {
 			System.out.println("``````````Bloptop```````````");
 			System.out.println("    Operations:     ");
@@ -68,9 +70,8 @@ public class Blaptop_Agencey implements BlaptopAction {
 				break;
 			case 5:
 				System.out.println("What Laptop do you like to see");
-				System.out.println("Enter the Name");
-				modelName = sc.nextLine();
-				obj.Searching(modelName);
+				searchName = sc.next();
+				obj.Searching(searchName);
 				break;
 			case 6:
 				obj.Sorting();
@@ -154,16 +155,61 @@ public class Blaptop_Agencey implements BlaptopAction {
 
 	@Override
 	public void Searching(String name) {
-		System.out.println("Try to fetch laptop model matching the Laptop name "+name);
-		for(Integer index=0;index<model.length;index++) {
-			if(model[index].getModelName().equalsIgnoreCase(name)) {
-				System.out.println(model[index]);
-				break;
+		String serial,modelname,color,price,storage;
+		System.out.println("Try to fetch laptop model matching the Laptop "+name);
+		if(name.equalsIgnoreCase("serialno")) {
+			System.out.println("What serial number do you want ? ");
+			serial=sc.next();
+			for(Integer index=0;index<model.length;index++) {
+				if(model[index].getSerialno().equals(serial)) {
+					System.out.println(model[index]);
+					break;
+				}
 			}
-			else {
-				System.out.println("The Laptop Name you entered doesn't exist");
+		}
+		else if(name.equalsIgnoreCase("modelName")) {
+			System.out.println("What Model Name do you want ? ");
+			modelname = sc.next();
+			for(Integer index = 0;index<model.length;index++) {
+				if(model[index].getModelName().equalsIgnoreCase(modelname)) {
+					System.out.println(model[index]);
+					break;
+				}
 			}
-		}	
+		}
+		else if(name.equalsIgnoreCase("color")) {
+			System.out.println("What Color do you want ? ");
+			color = sc.next();
+			for(Integer index=0;index<model.length;index++) {
+				if(model[index].getColor().equalsIgnoreCase(color)) {
+					System.out.println(model[index]);
+					break;
+				}
+			}
+		}
+		else if(name.equalsIgnoreCase("price")) {
+			System.out.println("What Price do you want ?");
+			price = sc.next();
+			for(Integer index=0;index<model.length;index++) {
+				if(model[index].getPrice().equals(price)) {
+					System.out.println(model[index]);
+					break;
+				}
+			}
+		}
+		else if(name.equalsIgnoreCase("storage")) {
+			System.out.println("What Storage do you want ?");
+			storage = sc.next();
+			for(Integer index=0;index<model.length;index++) {
+				if(model[index].getStorage().equals(storage)) {
+					System.out.println(model[index]);
+					break;
+				}
+			}
+		}
+		else {
+			System.out.println("The Laptop Data You are trying to Search for doesn't Exists");
+		}
 	}
 
 	@Override
